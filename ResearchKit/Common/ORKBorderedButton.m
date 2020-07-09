@@ -75,8 +75,8 @@
 }
 
 - (void)setDefaultTintColors {
-    _normalTintColor = [[self tintColor] colorWithAlphaComponent:0.7f];
-    _normalHighlightOrSelectTintColor = [_normalTintColor colorWithAlphaComponent:1.0f];
+    _normalTintColor = [[self tintColor] colorWithAlphaComponent:1.0f];
+    _normalHighlightOrSelectTintColor = [_normalTintColor colorWithAlphaComponent:0.7f];
     _disableTintColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.3f];
 }
 
