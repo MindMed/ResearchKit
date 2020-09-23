@@ -44,7 +44,7 @@
 
 #import "ORKHelpers_Internal.h"
 
-@import HealthKit;
+//@import HealthKit;
 @import MapKit;
 
 
@@ -88,7 +88,7 @@ NSNumberFormatterStyle ORKNumberFormattingStyleConvert(ORKNumberFormattingStyle 
 }
 
 
-@implementation ORKAnswerDefaultSource {
+/*@implementation ORKAnswerDefaultSource {
     NSMutableDictionary *_unitsTable;
 }
 
@@ -266,7 +266,7 @@ NSNumberFormatterStyle ORKNumberFormattingStyleConvert(ORKNumberFormattingStyle 
     }
 }
 
-@end
+@end*/
 
 
 #pragma mark - ORKAnswerFormat
@@ -492,7 +492,7 @@ NSNumberFormatterStyle ORKNumberFormattingStyleConvert(ORKNumberFormattingStyle 
     return NO;
 }
 
-- (HKObjectType *)healthKitObjectType {
+/*- (HKObjectType *)healthKitObjectType {
     return nil;
 }
 
@@ -510,7 +510,7 @@ NSNumberFormatterStyle ORKNumberFormattingStyleConvert(ORKNumberFormattingStyle 
 
 - (void)setHealthKitUserUnit:(HKUnit *)unit {
     
-}
+}*/
 
 - (ORKQuestionType)questionType {
     return ORKQuestionTypeNone;

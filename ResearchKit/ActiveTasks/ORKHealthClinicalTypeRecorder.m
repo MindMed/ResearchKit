@@ -43,7 +43,7 @@
 @interface ORKHealthClinicalTypeRecorder () {
     ORKDataLogger *_logger;
     BOOL _isRecording;
-    HKHealthStore *_healthStore;
+//    HKHealthStore *_healthStore;
     ORKStep *_step;
 }
 
@@ -51,7 +51,7 @@
 
 @implementation ORKHealthClinicalTypeRecorder
 
-- (instancetype)initWithIdentifier:(NSString *)identifier
+/*- (instancetype)initWithIdentifier:(NSString *)identifier
                 healthClinicalType:(HKClinicalType *)healthClinicalType
             healthFHIRResourceType:(nullable HKFHIRResourceType)healthFHIRResourceType
                               step:(ORKStep *)step
@@ -67,7 +67,7 @@
         _step = step;
     }
     return self;
-}
+}*/
 
 - (void)dealloc {
     [_logger finishCurrentLog];
@@ -85,18 +85,18 @@
         }
     }
     
-    if (![HKHealthStore isHealthDataAvailable]) {
+    /*if (![HKHealthStore isHealthDataAvailable]) {
         [self finishRecordingWithError:[NSError errorWithDomain:NSCocoaErrorDomain
                                                            code:NSFeatureUnsupportedError
                                                        userInfo:@{@"recorder" : self}]];
         return;
-    }
+    }*/
     
-    if (!_healthStore) {
-        _healthStore = [HKHealthStore new];
-    }
+//    if (!_healthStore) {
+//        _healthStore = [HKHealthStore new];
+//    }
     
-    HKSampleQuery *query = [[HKSampleQuery alloc] initWithSampleType:_healthClinicalType
+    /*HKSampleQuery *query = [[HKSampleQuery alloc] initWithSampleType:_healthClinicalType
                                                            predicate:_healthFHIRResourceType ? [HKQuery predicateForClinicalRecordsWithFHIRResourceType:_healthFHIRResourceType] : nil limit:HKObjectQueryNoLimit
                                                      sortDescriptors:nil
                                                       resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
@@ -114,15 +114,15 @@
                                                                   return;
                                                               }
                                                           }];
-                                                      }];
+                                                      }];*/
     
     _isRecording = YES;
-    [_healthStore executeQuery:query];
+//    [_healthStore executeQuery:query];
 }
 
-- (NSString *)recorderType {
+/*- (NSString *)recorderType {
     return _healthClinicalType.identifier;
-}
+}*/
 
 - (void)stop {
     if (!_isRecording) {
@@ -171,15 +171,15 @@
 @end
 
 
-@implementation ORKHealthClinicalTypeRecorderConfiguration
+//@implementation ORKHealthClinicalTypeRecorderConfiguration
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
-- (instancetype)initWithIdentifier:(NSString *)identifier {
-    @throw [NSException exceptionWithName:NSGenericException reason:@"Use subclass designated initializer" userInfo:nil];
-}
+//- (instancetype)initWithIdentifier:(NSString *)identifier {
+//    @throw [NSException exceptionWithName:NSGenericException reason:@"Use subclass designated initializer" userInfo:nil];
+//}
 
-- (instancetype)initWithIdentifier:(NSString *)identifier
+/*- (instancetype)initWithIdentifier:(NSString *)identifier
                 healthClinicalType:(HKClinicalType *)healthClinicalType
             healthFHIRResourceType:(nullable HKFHIRResourceType)healthFHIRResourceType {
     self = [super initWithIdentifier:identifier];
@@ -189,10 +189,10 @@
         _healthFHIRResourceType = healthFHIRResourceType;
     }
     return self;
-}
+}*/
 #pragma clang diagnostic pop
 
-- (ORKRecorder *)recorderForStep:(ORKStep *)step
+/*- (ORKRecorder *)recorderForStep:(ORKStep *)step
                  outputDirectory:(NSURL *)outputDirectory {
     return [[ORKHealthClinicalTypeRecorder alloc] initWithIdentifier:self.identifier
                                                   healthClinicalType:_healthClinicalType
@@ -232,5 +232,5 @@
     return [NSSet setWithObject:_healthClinicalType];
 }
 
-@end
+@end*/
 #endif

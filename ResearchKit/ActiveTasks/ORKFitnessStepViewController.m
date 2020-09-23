@@ -88,7 +88,7 @@
     self.activeStepView.stepViewFillsAvailableSpace = YES;
 }
 
-- (void)updateHeartRateWithQuantity:(HKQuantitySample *)quantity unit:(HKUnit *)unit {
+/*- (void)updateHeartRateWithQuantity:(HKQuantitySample *)quantity unit:(HKUnit *)unit {
     if (quantity != nil) {
         _contentView.hasHeartRate = YES;
     }
@@ -97,7 +97,7 @@
     } else {
         _contentView.heartRate = @"--";
     }
-}
+}*/
 
 - (void)updateDistance:(double)distanceInMeters {
     _contentView.hasDistance = YES;
@@ -114,10 +114,10 @@
         if ([recorder isKindOfClass:[ORKPedometerRecorder class]]) {
             pedometerRecorder = (ORKPedometerRecorder *)recorder;
         } else if ([recorder isKindOfClass:[ORKHealthQuantityTypeRecorder class]]) {
-            ORKHealthQuantityTypeRecorder *rec1 = (ORKHealthQuantityTypeRecorder *)recorder;
-            if ([[[rec1 quantityType] identifier] isEqualToString:HKQuantityTypeIdentifierHeartRate]) {
-                heartRateRecorder = (ORKHealthQuantityTypeRecorder *)recorder;
-            }
+//            ORKHealthQuantityTypeRecorder *rec1 = (ORKHealthQuantityTypeRecorder *)recorder;
+//            if ([[[rec1 quantityType] identifier] isEqualToString:HKQuantityTypeIdentifierHeartRate]) {
+//                heartRateRecorder = (ORKHealthQuantityTypeRecorder *)recorder;
+//            }
         }
     }
     
@@ -138,9 +138,9 @@
 #pragma mark - ORKHealthQuantityTypeRecorderDelegate
 
 - (void)healthQuantityTypeRecorderDidUpdate:(ORKHealthQuantityTypeRecorder *)healthQuantityTypeRecorder {
-    if ([[healthQuantityTypeRecorder.quantityType identifier] isEqualToString:HKQuantityTypeIdentifierHeartRate]) {
-        [self updateHeartRateWithQuantity:healthQuantityTypeRecorder.lastSample unit:healthQuantityTypeRecorder.unit];
-    }
+//    if ([[healthQuantityTypeRecorder.quantityType identifier] isEqualToString:HKQuantityTypeIdentifierHeartRate]) {
+//        [self updateHeartRateWithQuantity:healthQuantityTypeRecorder.lastSample unit:healthQuantityTypeRecorder.unit];
+//    }
 }
 
 #pragma mark - ORKPedometerRecorderDelegate

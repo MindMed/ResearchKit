@@ -30,7 +30,7 @@
 
 import Foundation
 
-extension ORKBiologicalSexIdentifier {
+/*extension ORKBiologicalSexIdentifier {
     
     public func healthKitBiologicalSex() -> HKBiologicalSex? {
         switch (self) {
@@ -70,4 +70,4 @@ extension ORKBloodTypeIdentifier {
             return nil
         }
     }
-}
+}*/

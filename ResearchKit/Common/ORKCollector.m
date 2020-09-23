@@ -115,7 +115,7 @@ static NSString *const ItemIdentifierFormatWithTwoPlaceholders = @"org.researchk
 
 @implementation ORKHealthCollector : ORKCollector
 
-- (instancetype)initWithSampleType:(HKSampleType*)sampleType unit:(HKUnit*)unit startDate:(NSDate*)startDate {
+/*- (instancetype)initWithSampleType:(HKSampleType*)sampleType unit:(HKUnit*)unit startDate:(NSDate*)startDate {
     NSString *itemIdentifier = [NSString stringWithFormat:ItemIdentifierFormatWithTwoPlaceholders, sampleType.identifier, unit.unitString];
     self = [super initWithIdentifier:itemIdentifier];
     if (self) {
@@ -124,7 +124,7 @@ static NSString *const ItemIdentifierFormatWithTwoPlaceholders = @"org.researchk
         _startDate = startDate;
     }
     return self;
-}
+}*/
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -133,10 +133,10 @@ static NSString *const ItemIdentifierFormatWithTwoPlaceholders = @"org.researchk
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        ORK_DECODE_OBJ(aDecoder, sampleType);
-        ORK_DECODE_OBJ(aDecoder, unit);
-        ORK_DECODE_OBJ(aDecoder, startDate);
-        ORK_DECODE_OBJ(aDecoder, lastAnchor);
+//        ORK_DECODE_OBJ(aDecoder, sampleType);
+//        ORK_DECODE_OBJ(aDecoder, unit);
+//        ORK_DECODE_OBJ(aDecoder, startDate);
+//        ORK_DECODE_OBJ(aDecoder, lastAnchor);
     }
     return self;
 }
@@ -144,13 +144,13 @@ static NSString *const ItemIdentifierFormatWithTwoPlaceholders = @"org.researchk
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [super encodeWithCoder:aCoder];
     
-    ORK_ENCODE_OBJ(aCoder, sampleType);
-    ORK_ENCODE_OBJ(aCoder, unit);
-    ORK_ENCODE_OBJ(aCoder, startDate);
-    ORK_ENCODE_OBJ(aCoder, lastAnchor);
+//    ORK_ENCODE_OBJ(aCoder, sampleType);
+//    ORK_ENCODE_OBJ(aCoder, unit);
+//    ORK_ENCODE_OBJ(aCoder, startDate);
+//    ORK_ENCODE_OBJ(aCoder, lastAnchor);
 }
 
-- (NSArray *)serializableObjectsForObjects:(NSArray<HKSample *> *)objects {
+/*- (NSArray *)serializableObjectsForObjects:(NSArray<HKSample *> *)objects {
     NSMutableArray *elements = [NSMutableArray arrayWithCapacity:[objects count]];
     for (HKSample *sample in objects) {
         [elements addObject:[sample ork_JSONDictionaryWithOptions:(ORKSampleJSONOptions)(ORKSampleIncludeMetadata|ORKSampleIncludeSource|ORKSampleIncludeUUID) unit:self.unit]];
@@ -190,14 +190,14 @@ static NSString *const ItemIdentifierFormatWithTwoPlaceholders = @"org.researchk
             ORKEqualObjects(_unit, castObject.unit) &&
             ORKEqualObjects(_startDate, castObject.startDate) &&
             ORKEqualObjects(_lastAnchor, castObject.lastAnchor));
-}
+}*/
 
 @end
 
 
 @implementation ORKHealthCorrelationCollector : ORKCollector
 
-- (instancetype)initWithCorrelationType:(HKCorrelationType *)correlationType
+/*- (instancetype)initWithCorrelationType:(HKCorrelationType *)correlationType
                             sampleTypes:(NSArray *)sampleTypes
                                   units:(NSArray<HKUnit *> *)units
                               startDate:(NSDate *)startDate {
@@ -210,13 +210,13 @@ static NSString *const ItemIdentifierFormatWithTwoPlaceholders = @"org.researchk
         _startDate = startDate;
     }
     return self;
-}
+}*/
 
 + (BOOL)supportsSecureCoding {
     return YES;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+/*- (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         ORK_DECODE_OBJ(aDecoder, correlationType);
@@ -286,7 +286,7 @@ static NSString *const ItemIdentifierFormatWithTwoPlaceholders = @"org.researchk
             ORKEqualObjects(_units, castObject.units) &&
             ORKEqualObjects(_startDate, castObject.startDate) &&
             ORKEqualObjects(_lastAnchor, castObject.lastAnchor));
-}
+}*/
 
 @end
 
